@@ -52,8 +52,8 @@ const Certificate = () => {
             >
               <div className="flex items-center gap-3 mb-3">
                 <img
-                  src={cert.logo || defaultLogo} // fallback if logo missing
-                  onError={(e) => { e.target.onerror = null; e.target.src = defaultLogo; }} // fallback on load error
+                  src={cert.logo || defaultLogo}
+                  onError={(e) => { e.target.onerror = null; e.target.src = defaultLogo; }}
                   alt={cert.issuer}
                   className="w-10 h-10 object-contain"
                 />
