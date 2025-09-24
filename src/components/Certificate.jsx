@@ -1,4 +1,9 @@
 import React from "react";
+import awsLogo from "../assets/logos/aws.png";
+import googleLogo from "../assets/logos/google.png";
+import nodeLogo from "../assets/logos/node.png";
+import pankajLogo from "../assets/logos/psa.png";
+import defaultLogo from "../assets/logos/default.png";
 
 const certificationsData = [
   {
@@ -6,53 +11,77 @@ const certificationsData = [
     issuer: "AWS",
     date: "2024",
     link: "https://drive.google.com/file/d/1KNn-_kz_hlDceh8hRyu1XWR09NCn4bxc/view?usp=sharing",
+    logo: awsLogo,
   },
   {
     title: "Software Development",
     issuer: "Pankaj Sir Academy",
     date: "2024",
     link: "https://drive.google.com/file/d/1NFwDOy76OpryGo46iQlsc6W973Djud2i/view?usp=sharing",
+    logo: pankajLogo,
   },
   {
     title: "Namaste Node.js",
     issuer: "Namaste Dev",
     date: "2025",
     link: "https://drive.google.com/file/d/1O0yZlc78Wi-FQDrHj2S-GPoQ6O5qWZI1/view?usp=sharing",
+    logo: nodeLogo,
   },
   {
     title: "Cyber Security Fundamentals",
     issuer: "Google",
     date: "2024",
     link: "https://drive.google.com/file/d/1yDB1Almr-VnxeyrJBtaentnWpu-wKFtP/view?usp=sharing",
-  }
+    logo: googleLogo,
+  },
 ];
 
-const Certifications = () => {
+const Certificate = () => {
   return (
-    <section id="certifications" className="py-16 max-w-5xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-8">Certifications</h2>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {certificationsData.map((cert, index) => (
-          <div
-            key={index}
-            className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-          >
-            <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
-            <p className="text-gray-600 mb-2">{cert.issuer}</p>
-            <p className="text-gray-500 mb-4">{cert.date}</p>
-            <a
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline font-medium"
+    <section id="certifications" className="py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+          Certifications
+        </h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certificationsData.map((cert, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-between border border-gray-200 shadow-md rounded-xl p-5 bg-white hover:shadow-lg transition"
             >
-              View Certificate
-            </a>
-          </div>
-        ))}
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src={cert.logo || defaultLogo} // fallback if logo missing
+                  onError={(e) => { e.target.onerror = null; e.target.src = defaultLogo; }} // fallback on load error
+                  alt={cert.issuer}
+                  className="w-10 h-10 object-contain"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {cert.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">{cert.issuer}</p>
+                  <p className="text-xs text-gray-500">{cert.date}</p>
+                </div>
+              </div>
+
+              <div className="flex justify-end mt-4">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition"
+                >
+                  View
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default Certifications;
+export default Certificate;
