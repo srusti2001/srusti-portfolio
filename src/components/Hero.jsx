@@ -15,7 +15,7 @@ const Hero = () => (
     <motion.div initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1 }}>
       <h1 className="text-5xl font-bold mb-4">Hello, I'm Srusti Samprada Pradhan</h1>
       <p className="text-xl mb-4">Software Engineer | Java & Spring Boot | Full-Stack Enthusiast</p>
-      <a href="/Srustiresume.pdf" download="Srusti_Samprada_Pradhan_Resume.pdf" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Download Resume</a>
+      <a href="/SrustiResume.pdf" download="Srusti_Samprada_Pradhan_Resume.pdf" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Download Resume</a>
     </motion.div>
   </section>
 );
