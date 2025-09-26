@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* index.css */
 body {
   font-family: 'Inter', sans-serif;
+  font-size: 14px; /* default text smaller */
+  line-height: 1.6; /* optional for readability */
+  color: #333; /* optional, professional text color */
+}
+
+/* You can adjust headings separately if needed */
+h1 {
+  font-size: 1.8rem; /* smaller than default large */
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 0.9rem;
 }
